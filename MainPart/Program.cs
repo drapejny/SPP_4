@@ -10,6 +10,7 @@ namespace MainPart
     {
         static void Main(string[] args)
         {
+           // var pathToFolder = "D:\\VS Projects\\SPP_4\\MainPart\\Files";
             var pathToFolder = "D:\\VS Projects\\SPP_4\\MainPart\\Files";
             var pathToGenerated = "D:\\VS Projects\\SPP_4\\GeneratedTests\\GeneratedFiles";
             

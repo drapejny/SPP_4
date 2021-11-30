@@ -14,7 +14,7 @@ namespace MainPart.Files
         {
 
         }
-        public int kj()
+        public int met()
         {
             int a = 0;
             int b= a++;
