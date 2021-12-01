@@ -36,7 +36,7 @@ namespace UnitTestForLib
         }
 
         [Test]
-        public void GeneratedFilesNumber()
+        public void GeneratedFilesNumberTest()
         {
             if (!Directory.Exists(GeneratedFilesPath))
             {
@@ -53,6 +53,21 @@ namespace UnitTestForLib
             }
             Directory.Delete(GeneratedFilesPath);
             Assert.AreEqual(generatedFiles.Length, 3, "Wrong number of generated files.");
+        }
+
+        [Test]
+        public void GeneratedFilesNamesTest()
+        {
+            if (!Directory.Exists(GeneratedFilesPath))
+            {
+                Directory.CreateDirectory(GeneratedFilesPath);
+            }
+            Task task = new Pipeline().Generate(files, GeneratedFilesPath);
+            task.Wait();
+            generatedFiles = Directory.GetFiles(GeneratedFilesPath);
+            Assert.IsTrue("\\TestClass1Test.cs".Equals(generatedFiles[0].Substring(generatedFiles[0].LastIndexOf("\\")))
+                && "\\TestClass21Test.cs".Equals(generatedFiles[1].Substring(generatedFiles[0].LastIndexOf("\\")))
+                && "\\TestClass22Test.cs".Equals(generatedFiles[2].Substring(generatedFiles[0].LastIndexOf("\\"))));
         }
     }
 }
